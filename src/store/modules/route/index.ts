@@ -34,7 +34,7 @@ export const useRouteStore = defineStore('route-store', {
           router.addRoute('root', {
             path: menu.path,
             name: menu.name,
-            meta: { label: menu.label },
+            meta: { label: menu.label, icon: menu.icon },
             component: modulesRoutes[`/src/views/${menu.component}`],
             // component: () => import(`./src/views/${menu.component}`)
           })

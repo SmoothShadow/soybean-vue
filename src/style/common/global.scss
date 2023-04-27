@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  height: 100%;
+}
+
+.global-shadow {
+  box-shadow: 0 1px 2px rgb(0 21 41 / 8%);
+}
+
+.admin-tab__chrome-tab__slot{
+  display: flex;
+  align-items: center;
+}
+
+.admin-tab__chrome-tab__slot {
+  overflow: hidden;
+}
+
+.admin-tab__chrome-tab__icon {
+  padding-left: 8px !important;
+}

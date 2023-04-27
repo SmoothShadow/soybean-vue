@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import { useRouteStore } from '@/store/modules/route/index'
+import { useTabStore } from '@/store/modules/tab/index'
 import NProgress from '@/utils/progress'
 import { getBreadcrumbMenu } from '@/store/modules/utils';
 
@@ -119,6 +120,10 @@ const routes = [
       {
         path: '/home',
         name: 'home',
+        meta: {
+          label: '主页',
+          icon: '/cat.svg'
+        },
         component: () => import('@/views/Home.vue')
       },
     ]
@@ -144,6 +149,16 @@ router.beforeEach(async to => {
   if (to.path !== '/' && to.path !== '/home'){
     // routeStore.setAll(menus)
     if(hasRoute){
+
+      // tab标签主页默认添加
+      const tabStore = useTabStore()
+      let tab: App.tabOption = {
+        name: '主页',
+        path: '/home',
+        icon: '/cat.svg'
+      }
+      tabStore.addTab(tab)
+
       hasRoute = false
       router.push({ ...to, replace: true })
     }
@@ -154,7 +169,17 @@ router.beforeEach(async to => {
 router.afterEach((to) => {
   if(to.name){
     const routeStore = useRouteStore()
+    const tabStore = useTabStore()
     routeStore.updateRoute(getBreadcrumbMenu(menus, to.name as string))
+    tabStore.updateActiveTab(to.fullPath)
+    if(to.meta.label && to.meta.icon){
+      let tab: App.tabOption = {
+        name: to.meta.label as string,
+        path: to.fullPath,
+        icon: to.meta.icon as string
+      }
+      tabStore.addTab(tab)
+    }
   }
   NProgress.done()
 })

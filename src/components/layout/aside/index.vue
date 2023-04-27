@@ -1,11 +1,12 @@
 <template>
   <el-menu
   :default-active="currentRoute"
-  class="h-screen el-menu-vertical-demo overflow-x-hidden"
+  class="h-screen overflow-x-hidden border-r-0"
   router
   mode="vertical"
   :collapse="isCollapse" 
   :collapse-transition="false"
+  :style="{'--tw-text-opacity': themeStore.darkMode ? '0.82' : '1'}"
   >
     <el-sub-menu 
     v-for="menu in menus"
@@ -46,6 +47,7 @@
 import { ref, inject, reactive } from 'vue'
 import { useRouter } from 'vue-router';
 import { useRouteStore } from '@/store/modules/route';
+import { useThemeStore } from '@/store/modules/theme'
 import { computed } from '@vue/reactivity';
 defineOptions({ name: 'Aside' })
 
@@ -56,6 +58,7 @@ const menus = reactive(routerStore.menus)
 
 const currentRoute = computed (() => useRouter().currentRoute.value.fullPath)
 
+const themeStore = useThemeStore()
 </script>
 
 <style lang="scss" scoped>
