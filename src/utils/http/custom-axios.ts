@@ -28,7 +28,7 @@ export class CustomAxios<T> {
     } = config;
 
     // ↓请求拦截器。在请求发送前，对请求配置做一些处理
-    this.instance.interceptors.request.use((config: AxiosRequestConfig) => {
+    this.instance.interceptors.request.use((config: any) => {
       // ↓如果开启中止请求功能
       if (enableAbortRequest) {
         const pendingKey = this.abortRequest.genPendingKey(config)
@@ -38,7 +38,7 @@ export class CustomAxios<T> {
       }
 
       if (interceptorRequest) {
-        console.log('进入请求拦截器...')
+        // console.log('进入请求拦截器...')
         return interceptorRequest(config)
       }
       return config;
@@ -59,7 +59,7 @@ export class CustomAxios<T> {
       }
 
       if (interceptorResponse) {
-        console.log('进入响应拦截器...')
+        // console.log('进入响应拦截器...')
         return interceptorResponse(response)
       }
       return response;

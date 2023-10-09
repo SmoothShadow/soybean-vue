@@ -12,7 +12,7 @@
           <Tabs class="global-shadow flex items-end dark:bg-[#18181c] dark:text-white dark:text-opacity-82"/>
         </div>
         <el-main class="bg-[#f6f9f8] dark:bg-[#101014]">
-          <div class="bg-[#ffffff] dark:bg-[#18181c] w-full h-full rounded-16px">
+          <div class="bg-[#ffffff] dark:bg-[#18181c] w-full min-h-full h-full rounded-16px">
             <router-view />
           </div>
         </el-main>

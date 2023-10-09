@@ -39,3 +39,4 @@ export default defineConfig(({command, mode}) => {
     }
   }
 });
+vue({reactivityTransform: true})  // 启用响应式语法糖$ref $computed $toRef

@@ -19,12 +19,12 @@ const customAxios = new CustomAxios<CustomResponse>({
     enableAbortRequest: false,
     interceptorRequest: (config: AxiosRequestConfig) => {
       // TODO 请求拦截业务逻辑
-      console.log('执行请求拦截器...');
+      // console.log('执行请求拦截器...');
       return config
     },
     interceptorResponse: (res: AxiosResponse) => {
       // TODO 相应拦截业务逻辑
-      console.log('执行响应拦截器...');
+      // console.log('执行响应拦截器...');
       return res
     }
   }

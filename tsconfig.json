@@ -12,7 +12,7 @@
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
     "noEmit": true,
-    "types": ["unplugin-vue-define-options/macros-global" /* ... */],
+    "types": ["unplugin-vue-define-options/macros-global", "vue/ref-macros" /* ... */],
     // 解决vue组件内使用环境变量提示找不到对应文件的问题
     "baseUrl": ".",
     "paths": {

@@ -28,5 +28,6 @@ export interface CustomResponse {
   // ↓状态码
   code: number;
   // ↓数据集
-  result: any
+  result: any;
+  data: any;
 }
